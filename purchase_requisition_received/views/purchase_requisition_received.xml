@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="purchase_requisition_received">
+            <field name="name">purchase.requisition.received</field>
+            <field name="model">purchase.requisition</field>
+            <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='qty_ordered']" position="before">
+                    <field name="qty_received" />
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="purchase_requisition_total">
+            <field name="name">purchase.requisition.delivered</field>
+            <field name="model">purchase.requisition</field>
+            <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="order_count" />
+                    <field name="ordered_total" />
+                    <field name="received_total" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
